@@ -1,0 +1,57 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --primary: #4f46e5; --bg: #f8fafc; --card: #fff; --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0; }
+html, body { font-family: -apple-system, Roboto, sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.5; }
+.app-header { background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
+.header-left { display: flex; align-items: center; gap: 10px; }
+.logo { width: 42px; height: 42px; border-radius: 12px; background: rgba(255,255,255,0.2); display: grid; place-items: center; font-size: 24px; font-weight: 800; }
+.app-header h1 { font-size: 18px; font-weight: 800; }
+.subtitle { font-size: 11px; opacity: 0.9; }
+.icon-btn { background: rgba(255,255,255,0.15); border: none; color: #fff; width: 40px; height: 40px; border-radius: 10px; font-size: 20px; }
+.container { padding: 16px; max-width: 720px; margin: 0 auto; }
+.mode-selector { background: #fff; border-radius: 14px; padding: 14px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+.mode-selector h3 { font-size: 14px; margin-bottom: 10px; color: #64748b; }
+.modes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mode-btn { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 2px solid #e2e8f0; background: #fff; border-radius: 10px; font-size: 13px; font-weight: 600; color: #1e293b; }
+.mode-btn.active { border-color: #4f46e5; background: #eef2ff; color: #4f46e5; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.green { background: #10b981; } .dot.yellow { background: #f59e0b; } .dot.red { background: #ef4444; } .dot.blue { background: #3b82f6; }
+.input-section { background: #fff; border-radius: 14px; padding: 14px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+.label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
+.label-small { font-size: 12px; color: #64748b; margin-bottom: 6px; }
+#inputDe { width: 100%; min-height: 100px; padding: 12px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 15px; font-family: inherit; background: #fafbff; }
+#inputDe:focus { outline: none; border-color: #4f46e5; background: #fff; }
+.input-actions { display: grid; grid-template-columns: 2fr 1fr; gap: 8px; margin-top: 10px; }
+.primary-btn { background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; border: none; padding: 13px; border-radius: 10px; font-weight: 700; font-size: 15px; }
+.secondary-btn { background: #fff; color: #1e293b; border: 1.5px solid #e2e8f0; padding: 13px; border-radius: 10px; font-weight: 600; font-size: 15px; }
+.input-hint { font-size: 12px; color: #64748b; margin-top: 8px; }
+.quick-samples { margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { background: #fff; border: 1.5px solid #e2e8f0; padding: 6px 12px; border-radius: 999px; font-size: 12px; }
+.hidden { display: none !important; }
+.result-section { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.card { background: #fff; border-radius: 14px; padding: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 4px solid #4f46e5; }
+.card-title { font-weight: 800; font-size: 15px; margin-bottom: 10px; }
+.card-body { font-size: 14.5px; line-height: 1.65; color: #334155; }
+.card-body ul { padding-left: 20px; margin-bottom: 8px; }
+.card-body code, .card-body .formula { background: #f1f5f9; padding: 2px 6px; border-radius: 5px; font-family: monospace; font-size: 13.5px; color: #be185d; }
+.card-body .step { background: #f8fafc; padding: 10px 12px; border-radius: 8px; margin-bottom: 8px; border-left: 3px solid #4f46e5; }
+.card-body .step-title { font-weight: 700; color: #4f46e5; margin-bottom: 4px; }
+.card-body .answer-box { background: #d1fae5; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 15px; color: #065f46; text-align: center; }
+.card-body .warn-item { background: #fff; border: 1px solid #fecaca; padding: 8px 10px; border-radius: 8px; margin-bottom: 6px; font-size: 13.5px; }
+.app-footer { text-align: center; padding: 20px 16px 30px; font-size: 12px; color: #64748b; }
+.loading { display: inline-block; width: 16px; height: 16px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 6px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* BÀN PHÍM TOÁN */
+.math-keyboard { margin-top: 12px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 8px; }
+.kb-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 12px; color: #64748b; font-weight: 600; }
+.kb-toggle { background: transparent; border: 1px solid #e2e8f0; padding: 3px 10px; border-radius: 6px; font-size: 11px; color: #64748b; }
+.kb-body { display: flex; flex-direction: column; gap: 4px; }
+.kb-row { display: flex; gap: 4px; }
+.kb-key { flex: 1; min-width: 0; padding: 9px 2px; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 14px; font-weight: 600; color: #1e293b; font-family: inherit; }
+.kb-key:active { background: #4f46e5; color: #fff; }
+.kb-navkey { background: #eef2ff; color: #4f46e5; font-size: 15px; }
+.kb-frac { background: #fef3c7; color: #92400e; font-size: 13px; }
+.kb-trigkey { background: #dbeafe; color: #1e40af; font-size: 12px; font-weight: 700; }
+.kb-trigkey:active { background: #1e40af; color: #fff; }
+.kb-hidden .kb-body { display: none; }

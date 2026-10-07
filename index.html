@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI TOÁN 10</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-left">
+    <div class="logo">∑</div>
+    <div>
+      <h1>AI TOÁN 10</h1>
+      <p class="subtitle">Gia sư Toán lớp 10</p>
+    </div>
+  </div>
+  <button id="btnMenu" class="icon-btn">☰</button>
+</header>
+
+<nav id="drawer" class="drawer">
+  <div class="drawer-header">
+    <h2>📚 Chương trình</h2>
+    <button id="btnCloseDrawer" class="icon-btn">✕</button>
+  </div>
+  <ul class="drawer-list">
+    <li data-chuong="1">1. Mệnh đề và tập hợp</li>
+    <li data-chuong="2">2. Bất phương trình</li>
+    <li data-chuong="3">3. Hệ thức lượng</li>
+    <li data-chuong="4">4. Vectơ</li>
+    <li data-chuong="5">5. Tọa độ mặt phẳng</li>
+    <li data-chuong="6">6. Hàm số</li>
+    <li data-chuong="7">7. Hàm bậc hai</li>
+    <li data-chuong="8">8. Thống kê</li>
+    <li data-chuong="9">9. Xác suất</li>
+  </ul>
+</nav>
+<div id="overlay" class="overlay"></div>
+
+<main class="container">
+
+  <section class="mode-selector">
+    <h3>🎓 Chọn chế độ học</h3>
+    <div class="modes">
+      <button class="mode-btn active" data-mode="hoc"><span class="dot green"></span><span>Học từ đầu</span></button>
+      <button class="mode-btn" data-mode="luyen"><span class="dot yellow"></span><span>Luyện tập</span></button>
+      <button class="mode-btn" data-mode="thu-thach"><span class="dot red"></span><span>Thử thách</span></button>
+      <button class="mode-btn" data-mode="day-toi"><span class="dot blue"></span><span>DẠY TÔI</span></button>
+    </div>
+  </section>
+
+  <section class="input-section">
+    <label for="inputDe" class="label">📝 Nhập đề toán:</label>
+    <textarea id="inputDe" placeholder="Ví dụ: |x - 1| > 2&#10;hoặc: x^2 - 3x + 2 = 0"></textarea>
+
+    <div class="math-keyboard" id="mathKeyboard">
+      <div class="kb-header">
+        <span>⌨️ Bàn phím Toán</span>
+        <button id="btnToggleKb" class="kb-toggle" type="button">Ẩn</button>
+      </div>
+      <div class="kb-body">
+        <div class="kb-row kb-nav">
+          <button type="button" class="kb-key kb-navkey" data-action="left">←</button>
+          <button type="button" class="kb-key kb-navkey" data-action="up">↑</button>
+          <button type="button" class="kb-key kb-navkey" data-action="down">↓</button>
+          <button type="button" class="kb-key kb-navkey" data-action="right">→</button>
+          <button type="button" class="kb-key kb-navkey" data-action="backspace">⌫</button>
+          <button type="button" class="kb-key kb-navkey" data-action="enter">⏎</button>
+          <button type="button" class="kb-key kb-navkey" data-action="clear">🗑️</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" class="kb-key kb-frac" data-insert="()/()">a/b</button>
+          <button type="button" class="kb-key" data-insert="|x|">|x|</button>
+          <button type="button" class="kb-key" data-insert="√()">√</button>
+          <button type="button" class="kb-key" data-insert="^2">x²</button>
+          <button type="button" class="kb-key" data-insert="^3">x³</button>
+          <button type="button" class="kb-key" data-insert="^">xⁿ</button>
+          <button type="button" class="kb-key" data-insert="π">π</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" class="kb-key" data-insert=" < ">&lt;</button>
+          <button type="button" class="kb-key" data-insert=" > ">&gt;</button>
+          <button type="button" class="kb-key" data-insert=" ≤ ">≤</button>
+          <button type="button" class="kb-key" data-insert=" ≥ ">≥</button>
+          <button type="button" class="kb-key" data-insert=" ≠ ">≠</button>
+          <button type="button" class="kb-key" data-insert=" = ">=</button>
+          <button type="button" class="kb-key" data-insert=" ± ">±</button>
+        </div>
+        <div class="kb-row kb-trig">
+          <button type="button" class="kb-key kb-trigkey" data-insert="sin()">sin</button>
+          <button type="button" class="kb-key kb-trigkey" data-insert="cos()">cos</button>
+          <button type="button" class="kb-key kb-trigkey" data-insert="tan()">tan</button>
+          <button type="button" class="kb-key kb-trigkey" data-insert="cot()">cot</button>
+          <button type="button" class="kb-key kb-trigkey" data-insert="°">°</button>
+          <button type="button" class="kb-key kb-trigkey" data-insert="∠">∠</button>
+          <button type="button" class="kb-key kb-trigkey" data-insert="∆">∆</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" class="kb-key" data-insert=" ∩ ">∩</button>
+          <button type="button" class="kb-key" data-insert=" ∪ ">∪</button>
+          <button type="button" class="kb-key" data-insert=" ∈ ">∈</button>
+          <button type="button" class="kb-key" data-insert=" ∉ ">∉</button>
+          <button type="button" class="kb-key" data-insert=" ⊂ ">⊂</button>
+          <button type="button" class="kb-key" data-insert=" ⊃ ">⊃</button>
+          <button type="button" class="kb-key" data-insert=" ∅ ">∅</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" class="kb-key" data-insert=" ⇒ ">⇒</button>
+          <button type="button" class="kb-key" data-insert=" ⇔ ">⇔</button>
+          <button type="button" class="kb-key" data-insert=" ¬ ">¬</button>
+          <button type="button" class="kb-key" data-insert=" ∀ ">∀</button>
+          <button type="button" class="kb-key" data-insert=" ∃ ">∃</button>
+          <button type="button" class="kb-key" data-insert="α">α</button>
+          <button type="button" class="kb-key" data-insert="β">β</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" class="kb-key" data-insert="→">→</button>
+          <button type="button" class="kb-key" data-insert="·">·</button>
+          <button type="button" class="kb-key" data-insert="⊥">⊥</button>
+          <button type="button" class="kb-key" data-insert="∥">∥</button>
+          <button type="button" class="kb-key" data-insert="γ">γ</button>
+          <button type="button" class="kb-key" data-insert="θ">θ</button>
+          <button type="button" class="kb-key" data-insert="∞">∞</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-actions">
+      <button id="btnGiai" class="primary-btn">🚀 GIẢI BÀI</button>
+      <button id="btnXoa" class="secondary-btn">🗑️ XÓA</button>
+    </div>
+    <div class="input-hint" id="inputHint"></div>
+  </section>
+
+  <section class="quick-samples">
+    <p class="label-small">💡 Thử nhanh:</p>
+    <div class="chips">
+      <button class="chip" data-sample="|x - 1| > 2">|x-1| > 2</button>
+      <button class="chip" data-sample="x^2 - 3x + 2 = 0">x²-3x+2=0</button>
+      <button class="chip" data-sample="2x + 3 > 5">2x+3 > 5</button>
+    </div>
+  </section>
+
+  <section id="ketQua" class="result-section hidden">
+    <div class="card"><div class="card-title">📌 Dạng toán</div><div id="dangToan" class="card-body"></div></div>
+    <div class="card"><div class="card-title">📚 Kiến thức</div><div id="kienThuc" class="card-body"></div></div>
+    <div class="card"><div class="card-title">📝 Phân tích đề</div><div id="phanTich" class="card-body"></div></div>
+    <div class="card"><div class="card-title">🔹 Lời giải</div><div id="loiGiai" class="card-body"></div></div>
+    <div class="card"><div class="card-title">💡 Giải thích</div><div id="giaiThich" class="card-body"></div></div>
+    <div class="card"><div class="card-title">✅ Kết luận</div><div id="ketLuan" class="card-body"></div></div>
+    <div class="card"><div class="card-title">⚠️ Lỗi thường gặp</div><div id="loiThuongGap" class="card-body"></div></div>
+    <div class="card"><div class="card-title">🎯 Bài tương tự</div><div id="baiTuongTu" class="card-body"></div></div>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <p>10B8 <strong>Anh Minh</strong></p>
+</footer>
+
+<script src="data/kien-thuc.js"></script>
+<script src="data/dang-toan.js"></script>
+<script src="data/bai-tap.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
